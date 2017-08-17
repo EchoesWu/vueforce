@@ -12,7 +12,6 @@ import Button from '../components/Button/index.js'
 import Loading from '../components/Loading/index.js'
 
 import store from './store'
-import * as types from './store/mutation-types'
 
 const components = [
   Page,
@@ -37,8 +36,6 @@ const install = function (Vue, opts = {}) {
 if (typeof window !== 'undefined' && window.Vue) {
   /* Auto install */
   install(window.Vue)
-  /* Loading off */
-  store.commit(types.LOADING_SWITCH_OFF)
 }
 
 export default install

@@ -5,7 +5,7 @@
         <div class="slds-media__figure">
           <div class="slds-icon_container slds-icon-standard-lead">
             <svg class="slds-icon">
-              <use :xlink:href="[ './static/assets/icons/svg/standard/symbols.svg#' + icon ]"></use>
+              <use :xlink:href="[ assets + '/assets/icons/svg/standard/symbols.svg#' + icon ]"></use>
             </svg>
           </div>
         </div>
@@ -19,6 +19,9 @@
 </template>
 
 <script type="text/babel">
+
+  import store from '../../../src/store'
+
   export default {
     name: 'EsPageHeader',
     props: {
@@ -33,6 +36,11 @@
       color: {
         type: String,
         default: 'blue'
+      }
+    },
+    computed: {
+      assets: function () {
+        return store.state.assets
       }
     }
   }

@@ -13,7 +13,7 @@
       <svg
         class="slds-input__icon slds-icon-text-default"
         >
-        <use xlink:href="./static/assets/icons/svg/utility/symbols.svg#event"></use>
+        <use :xlink:href="[assets + '/assets/icons/svg/utility/symbols.svg#event']"></use>
       </svg>
       <input
         id="date" 
@@ -27,6 +27,7 @@
 
   import $ from '../vendor/jquery-vendor.js'
   import moment from '../vendor/moment-vendor.js'
+  import store from '../../../src/store'
   import 'appiphony-lightning-js/dist/jquery.aljs-init.min.js'
   import 'appiphony-lightning-js/dist/jquery.aljs-datepicker.min.js'
 
@@ -38,7 +39,7 @@
   })
 
   $.aljsInit({
-    assetsLocation: './static',
+    assetsLocation: store.state.assets,
     scoped: true,
     scopingClass: 'slds-scope'
   })
@@ -65,7 +66,9 @@
     },
     /* Computed */
     computed: {
-      /* Nothing */
+      assets: function () {
+        return store.state.assets
+      }
     },
     /* Methods */
     methods: {

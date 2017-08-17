@@ -23,7 +23,7 @@
           <svg 
             class="slds-button__icon slds-button__icon_hint"
             >
-            <use xlink:href="./static/assets/icons/svg/utility/symbols.svg#edit"></use>
+            <use :xlink:href="[assets + '/assets/icons/svg/utility/symbols.svg#edit']"></use>
           </svg>
         </button>
       </div>
@@ -73,7 +73,7 @@
           <svg
             class="slds-input__icon slds-icon-text-default"
             >
-            <use xlink:href="./static/assets/icons/svg/utility/symbols.svg#event"></use>
+            <use :xlink:href="[assets + '/assets/icons/svg/utility/symbols.svg#event']"></use>
           </svg>
           <input
             :id="datepickerid"
@@ -86,6 +86,8 @@
 </template>
 
 <script type="text/babel">
+
+  import store from '../../../src/store'
 
   export default {
     /* Name */
@@ -158,6 +160,9 @@
     computed: {
       model () {
         return this.value
+      },
+      assets () {
+        return store.state.assets
       }
     },
     /* Methods */

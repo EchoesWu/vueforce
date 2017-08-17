@@ -1,6 +1,6 @@
 {
   "name": "vueforce",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "A Vue.js lightning framework for salesforce",
   "author": "EchoesWu <echoes.wu@outlook.com>",
   "homepage": "http://vueforce.org",
@@ -17,10 +17,11 @@
     "lint": "eslint --ext .js,.vue src"
   },
   "dependencies": {
-    "vue": "^2.4.2",
     "appiphony-lightning-js": "^3.1.0",
     "jquery": "^3.2.1",
-    "moment": "^2.18.1"
+    "moment": "^2.18.1",
+    "vue": "^2.4.2",
+    "vuex": "^2.3.1"
   },
   "devDependencies": {
     "autoprefixer": "^6.7.2",

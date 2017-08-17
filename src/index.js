@@ -11,6 +11,8 @@ import DockedFooter from '../components/DockedFooter/index.js'
 import Button from '../components/Button/index.js'
 import Loading from '../components/Loading/index.js'
 
+import store from './store'
+
 const components = [
   Page,
   PageHeader,
@@ -32,7 +34,10 @@ const install = function (Vue, opts = {}) {
 }
 
 if (typeof window !== 'undefined' && window.Vue) {
+  /* Auto install */
   install(window.Vue)
+  /* Vuex regist */
+  window.Vue.use(store)
 }
 
 export default install

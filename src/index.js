@@ -38,7 +38,7 @@ if (typeof window !== 'undefined' && window.Vue) {
   /* Auto install */
   install(window.Vue)
   /* Loading off */
-  store.commit(types.LOADING_SWITCH_OFF)
+  window.store = store
 }
 
 export default install

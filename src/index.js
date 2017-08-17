@@ -12,7 +12,6 @@ import Button from '../components/Button/index.js'
 import Loading from '../components/Loading/index.js'
 
 import store from './store'
-import * as types from './store/mutation-types'
 
 const components = [
   Page,

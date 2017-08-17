@@ -162,7 +162,7 @@
         return this.value
       },
       assets () {
-        return store.state.assets
+        return store.getters.assets
       }
     },
     /* Methods */

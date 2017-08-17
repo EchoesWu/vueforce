@@ -67,7 +67,7 @@
     /* Computed */
     computed: {
       assets: function () {
-        return store.state.assets
+        return store.getters.assets
       }
     },
     /* Methods */

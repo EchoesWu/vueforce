@@ -1,0 +1,13 @@
+{
+  "Page": "./components/Page/index.js",
+  "PageHeader": "./components/PageHeader/index.js",
+  "Form": "./components/Form/index.js",
+  "FormElement": "./components/FormElement/index.js",
+  "Panel": "./components/Panel/index.js",
+  "PanelSection": "./components/PanelSection/index.js",
+  "DatePicker": "./components/DatePicker/index.js",
+  "Icon": "./components/Icon/index.js",
+  "DockedFooter": "./components/DockedFooter/index.js",
+  "Button": "./components/Button/index.js",
+  "Loading": "./components/Loading/index.js"
+}

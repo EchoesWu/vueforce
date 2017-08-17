@@ -36,8 +36,6 @@ const install = function (Vue, opts = {}) {
 if (typeof window !== 'undefined' && window.Vue) {
   /* Auto install */
   install(window.Vue)
-  /* Vuex regist */
-  window.Vue.use(store)
 }
 
 export default install

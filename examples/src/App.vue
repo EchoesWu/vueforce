@@ -83,12 +83,15 @@
 <script>
 
   import Vue from 'vue'
+  import Vuex from 'vuex'
   import $ from './utils/vendor/jquery-vendor.js'
   import moment from './utils/vendor/moment-vendor.js'
   import 'appiphony-lightning-js/dist/jquery.aljs-init.min.js'
   import 'appiphony-lightning-js/dist/jquery.aljs-datepicker.min.js'
   
   import demo from './api/demo-data.js'
+
+  Vue.use(Vuex)
 
   $.aljsInit({
     assetsLocation: './static',

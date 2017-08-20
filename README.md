@@ -1,9 +1,5 @@
 # Vueforce
 
-> A Vue.js framework for salesforce, but not just for salesforce
-
-# Introduction
-
 ### What is Vueforce?   
 ---
 Vueforce is a progressive framework base upon [vue.js](https://vuejs.org/) for building user interfaces. Unlike using other framework, vueforce is designed from [lightning design system](https://www.lightningdesignsystem.com/) and the manner of syntax is really like visualforce, so it won't be hard to start for each salesforce developer.

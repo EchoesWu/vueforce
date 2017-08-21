@@ -1,0 +1,153 @@
+<apex:page standardController="Account" extensions="FPMRemote" doctype="html-5.0" applyhtmltag="false" applybodytag="false"
+showheader="false" sidebar="false" standardstylesheets="false">
+<html xmlns:v-on="http://vueforce.org">
+<head>
+ <meta charset="utf-8" />
+ <title>Fund Product Management</title>
+ <link type="text/css" rel="stylesheet" href="https://unpkg.com/@salesforce-ux/design-system/assets/styles/salesforce-lightning-design-system.min.css" />
+ <style>
+     .layout {
+         width: 50%;
+         padding: .75rem;
+         box-sizing: border-box;
+     }
+ </style>
+</head>
+<body>
+ <div id="app">
+     <es-page>
+         <!-- Header -->
+         <es-page-header icon="account" title="产品管理">
+             <es-form>
+                 <es-form-element 
+                     type="select"
+                     v-on="{ change: toggle }"
+                     v-bind="{ defaultOption: '均衡基金', options: products }" />
+             </es-form>
+         </es-page-header>
+         <!-- Body -->
+         <es-panel>
+             <es-panel-section border="none">
+                 <es-form>
+                     <!-- Amount -->
+                     <div class="layout">
+                         <es-form-element
+                             v-bind="{
+                                 label: product.amount.label,
+                                 value: product.amount.value,
+                                 editable: product.amount.edit
+                             }"
+                             v-on:dblclick="edit(product.amount)" />
+                     </div>
+                     <!-- Horizon -->
+                     <div class="layout">
+                         <es-form-element
+                             v-bind="{
+                                 label: product.horizon.label,
+                                 value: product.horizon.value,
+                                 editable: product.horizon.edit
+                             }"
+                             v-on:dblclick="edit(product.horizon)" />
+                     </div>
+                     <!-- Start -->
+                     <div class="layout">
+                         <es-form-element
+                             v-bind="{
+                                 label: product.start.label,
+                                 value: product.start.value,
+                                 editable: product.start.edit
+                             }"
+                             v-on:dblclick="edit(product.start)" />
+                     </div>
+                     <!-- End -->
+                     <div class="layout">
+                         <es-form-element
+                             v-bind="{
+                                 label: product.end.label,
+                                 value: product.end.value,
+                                 editable: product.end.edit
+                             }"
+                             v-on:dblclick="edit(product.end)" />
+                     </div>
+                     <!-- Remark -->
+                     <div class="layout">
+                         <es-form-element
+                             v-bind="{
+                                 label: product.remark.label,
+                                 value: product.remark.value,
+                                 editable: product.remark.edit
+                             }"
+                             v-on:dblclick="edit(product.remark)" />
+                     </div>
+                 </es-form>
+             </es-panel-section>
+         </es-panel>
+         <!-- Footer -->
+         <es-docked-footer
+             v-if="true">
+             <button 
+                 class="slds-button slds-button_neutral"
+                 v-on="{ click: cancel }"
+                 > 取消
+             </button>
+             <button 
+                 class="slds-button slds-button_brand"
+                 v-on="{ click: save }"
+                 > 保存 
+             </button>
+         </es-docked-footer>
+         <!-- Loading -->
+         <es-loading v-bind="{ status: loading }" />
+     </es-page>
+ </div>
+</body>
+<!-- Vue --> 
+<script src="https://unpkg.com/vue"></script>
+<!-- Vueforce -->
+<script src="https://unpkg.com/vueforce"></script>
+
+<script>
+ /* Redirect Assets location */
+ store.commit("SLDS_REPLACE_ASSETS", "{!URLFOR($Resource.VAssets)}")
+
+ new Vue({
+     el: '#app',
+     data: function () {
+         return {
+             loading: false,
+             editing: false,
+             products: ['均衡基金', '新兴市场', '私募股权', '房地产'],
+             product: { name: '', amount: { label: '', value: '', edit: false }, start: { id: '', label: '', value: '', edit: false }, end: { id: '', label: '', value: '', edit: false }, horizon: { label: '', value: '', edit: false }, remark: { label: '', value: '', edit: false} }
+         }
+     },
+     methods: {
+         toggle (model) {
+             // Loading 
+             this.loading = true
+             // Fetch data
+             FPMRemote.fetch('{!recordId}', field.get(model),
+                 function (results, evt) {
+                     console.log(results.product)
+                     this.loading = false
+                 }
+             )
+         },
+         edit (field) {
+             field.edit = true
+         },
+         save () {
+         },
+         cancel () {
+         }
+     }
+ })
+
+ const field = new Map([
+     ['均衡基金', 'Balance'],
+     ['新兴市场', 'Emerging'],
+     ['私募股权', 'Private'],
+     ['房地产', 'Realty']
+ ])    
+</script>
+</html>
+</apex:page>

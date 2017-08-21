@@ -54,7 +54,8 @@
                 :label="product.remark.label"
                 :value="product.remark.value"
                 :editable="product.remark.edit"
-                @dblclick="edit(product.remark)" />
+                @dblclick="edit(product.remark)"
+                @change="change" />
             </div>
           </es-form>
         </es-panel-section>
@@ -142,6 +143,9 @@
             })
           })
         }
+      },
+      change (model, label) {
+        console.log(model, label)
       },
       save () {
         this.loading = true

@@ -46,14 +46,14 @@
         <input 
           v-if=" type === 'text' "
           class="slds-input"
-          type="text" 
-          :value="model"
+          type="text"
+          v-model="model"
           :placeholder="placeholder">
         <!-- Text Area -->
         <textarea 
           v-if=" type === 'textarea' "
           class="slds-textarea" 
-          :value="model"
+          v-model="model"
           :placeholder="placeholder">
         </textarea>
         <!-- Select -->
@@ -63,7 +63,7 @@
           <select 
             class="slds-select"
             v-model="selector"
-            @change="change">
+            @change="toggle">
             <option v-for="option in options">{{ option }}</option>
           </select>
         </div>
@@ -76,9 +76,10 @@
             <use :xlink:href="[assets + '/assets/icons/svg/utility/symbols.svg#event']"></use>
           </svg>
           <input
-            :id="datepickerid"
             class="slds-input" 
-            type="text">
+            type="text"
+            :id="datepickerid"
+            v-model="model">
         </div>
       </div>
     </div>
@@ -158,8 +159,13 @@
     },
     /* Computed */
     computed: {
-      model () {
-        return this.value
+      model: {
+        get: function () {
+          return this.value
+        },
+        set: function (val) {
+          if (this._events.change) this.$emit('change', val, this.label)
+        }
       },
       assets () {
         return store.getters.assets
@@ -167,11 +173,11 @@
     },
     /* Methods */
     methods: {
-      change (event) {
-        this.$emit('change', this.selector)
+      toggle (event) {
+        if (this._events.toggle) this.$emit('toggle', this.selector)
       },
       edit (event) {
-        this.$emit('dblclick')
+        if (this._events.dblclick) this.$emit('dblclick')
       }
     },
     /* Watch */

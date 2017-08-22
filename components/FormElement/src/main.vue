@@ -40,7 +40,6 @@
       </label>
       <div 
         class="slds-form-element__control"
-          :class="[ type === 'datepicker' ? 'slds-input-has-icon slds-input-has-icon--right' : '']"
         >
         <!-- Text -->
         <input 
@@ -70,14 +69,9 @@
         <!-- Date Picker -->
         <div
           v-else-if=" type === 'datepicker' ">
-          <svg
-            class="slds-input__icon slds-icon-text-default"
-            >
-            <use :xlink:href="[assets + '/assets/icons/svg/utility/symbols.svg#event']"></use>
-          </svg>
           <input
             class="slds-input" 
-            type="text"
+            type="date"
             :id="datepickerid"
             v-model="model">
         </div>
@@ -186,3 +180,15 @@
     }
   }
 </script>
+
+<style>
+  ::-webkit-inner-spin-button { visibility: hidden; } 
+  ::-webkit-calendar-picker-indicator { 
+    border: 1px solid #ccc; 
+    border-radius: 2px; 
+    box-shadow: inset 0 1px #fff, 0 1px #eee; 
+    background-color: #eee; 
+    background-image: -webkit-linear-gradient(top, #f0f0f0, #e6e6e6); 
+    color: #666; 
+  }
+</style>

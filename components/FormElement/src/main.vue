@@ -72,7 +72,6 @@
           <input
             class="slds-input" 
             type="date"
-            :id="datepickerid"
             v-model="model">
         </div>
       </div>
@@ -134,15 +133,6 @@
       value: {
         type: [String, Number, Boolean, Date],
         default: ''
-      },
-      datepickerid: {
-        type: String,
-        default: 'default'
-      },
-      custom: {
-        validator: function (value) {
-          return value > 10
-        }
       }
     },
     /* Data */

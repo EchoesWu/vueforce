@@ -9,7 +9,7 @@
             type="select" 
             defaultOption="均衡基金"
             :options="products"
-            @change="toggle" />
+            @toggle="toggle" />
         </es-form>
       </es-page-header>
       <!-- Panel Body -->
@@ -21,7 +21,8 @@
                 :label="product.amount.label"
                 :value="product.amount.value"
                 :editable="product.amount.edit"
-                @dblclick="edit(product.amount)" />
+                @dblclick="edit(product.amount)"
+                @change="product.amount.value=$event" />
             </div>
            <div class="layout">
               <es-form-element
@@ -77,6 +78,8 @@
       </es-docked-footer>
       <!-- Loading -->
       <es-loading :status="loading" />
+      
+        <es-button type="neutral" label="保存" @click="cancel" />
     </es-page>
   </div>
 </template>

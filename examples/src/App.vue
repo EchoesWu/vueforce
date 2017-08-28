@@ -135,14 +135,15 @@
       edit (field) {
         this.editing = true
         field.edit = true
-        /*if (field.id) {
-          Vue.nextTick(() => {
-            $('#' + field.id).datepicker({
-              format: 'YYYY-MM-DD',
-              initDate: field.value
-            })
-          })
-        }*/
+        /** */
+        // if (field.id) {
+        //   Vue.nextTick(() => {
+        //     $('#' + field.id).datepicker({
+        //       format: 'YYYY-MM-DD',
+        //       initDate: field.value
+        //     })
+        //   })
+        // }
       },
       change (model, label) {
         console.log(model, label)

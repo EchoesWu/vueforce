@@ -4,26 +4,23 @@
     <div
       v-if="!editable"
       class="slds-form-element slds-hint-parent slds-form-element_edit"
-      @dblclick="edit"
-      >
+      @dblclick="edit">
       <span 
-        class="slds-form-element__label"
-        > {{ label }}
+        class="slds-form-element__label">
+        {{ label }}
       </span>
       <div 
-        class="slds-form-element__control slds-border_bottom"
-        >
+        class="slds-form-element__control slds-border_bottom">
         <span 
-          class="slds-form-element__static"
-          > {{ model }}
+          class="slds-form-element__static"> 
+          {{ model }}
         </span>
         <button 
-          class="slds-button slds-button_icon slds-float_right slds-button_icon slds-button_icon-small"
-          >
+          class="slds-button slds-button_icon slds-float_right slds-button_icon slds-button_icon-small">
           <svg 
-            class="slds-button__icon slds-button__icon_hint"
-            >
-            <use :xlink:href="[assets + '/assets/icons/svg/utility/symbols.svg#edit']"></use>
+            class="slds-button__icon slds-button__icon_hint">
+            <use :xlink:href="[assets + '/assets/icons/svg/utility/symbols.svg#edit']">
+            </use>
           </svg>
         </button>
       </div>
@@ -31,16 +28,14 @@
     <!-- Inputable -->
     <div 
       v-else
-      class="slds-form-element"
-      >
+      class="slds-form-element">
       <label 
         v-if="label"
-        class="slds-form-element__label"
-        > {{ label }}
+        class="slds-form-element__label"> 
+        {{ label }}
       </label>
       <div 
-        class="slds-form-element__control"
-        >
+        class="slds-form-element__control">
         <!-- Text -->
         <input 
           v-if=" type === 'text' "
@@ -63,7 +58,10 @@
             class="slds-select"
             v-model="selector"
             @change="toggle">
-            <option v-for="option in options">{{ option }}</option>
+            <option 
+              v-for="option in options">
+              {{ option }}
+            </option>
           </select>
         </div>
         <!-- Date Picker -->
@@ -110,7 +108,7 @@
       },
       placeholder: {
         type: String,
-        default: 'input something...'
+        default: 'Please input'
       },
       options: {
         type: Array,
@@ -148,7 +146,9 @@
           return this.value
         },
         set: function (val) {
-          if (this._events.change) this.$emit('change', val, this.label)
+          if (this._events.change) {
+            this.$emit('change', val)
+          }
         }
       },
       assets () {

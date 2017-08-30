@@ -56,7 +56,7 @@
                 :value="product.remark.value"
                 :editable="product.remark.edit"
                 @dblclick="edit(product.remark)"
-                @change="change" />
+                @change="change($event)" />
             </div>
           </es-form>
         </es-panel-section>
@@ -78,8 +78,6 @@
       </es-docked-footer>
       <!-- Loading -->
       <es-loading :status="loading" />
-      
-        <es-button type="neutral" label="保存" @click="cancel" />
     </es-page>
   </div>
 </template>
@@ -148,8 +146,8 @@
         //   })
         // }
       },
-      change (model, label) {
-        console.log(model, label)
+      change (result) {
+        console.log(result)
       },
       save () {
         this.loading = true

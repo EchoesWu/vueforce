@@ -147,7 +147,6 @@
         },
         set: function (val) {
           if (this._events.change) {
-            console.log(val)
             this.$emit('change', val)
           }
         }

@@ -78,6 +78,7 @@
       </es-docked-footer>
       <!-- Loading -->
       <es-loading :status="loading" />
+      <!--<es-button type="icon" icon="sync" />-->
     </es-page>
   </div>
 </template>

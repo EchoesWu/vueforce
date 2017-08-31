@@ -14,7 +14,7 @@
       {{ content }}
     </h2>
     <button 
-      class="slds-button slds-button_icon slds-notify__close slds-button_icon-inverse" title="Close">
+      class="slds-button slds-button_icon slds-notify__close slds-button_icon-inverse">
       <svg 
         class="slds-button__icon">
         <use 

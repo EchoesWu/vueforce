@@ -10,6 +10,8 @@ import Icon from '../components/Icon/index.js'
 import DockedFooter from '../components/DockedFooter/index.js'
 import Button from '../components/Button/index.js'
 import Loading from '../components/Loading/index.js'
+import Table from '../components/Table/index.js'
+import TableColumn from '../components/TableColumn/index.js'
 
 import store from './store'
 
@@ -24,7 +26,9 @@ const components = [
   Icon,
   DockedFooter,
   Button,
-  Loading
+  Loading,
+  Table,
+  TableColumn
 ]
 
 const install = function (Vue, opts = {}) {

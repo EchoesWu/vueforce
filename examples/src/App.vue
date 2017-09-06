@@ -79,6 +79,7 @@
       <!-- Loading -->
       <es-loading :status="loading" />
       <!--<es-button type="icon" icon="sync" />-->
+      <es-alert content="测试" :hasIcon="true"></es-alert>
     </es-page>
   </div>
 </template>

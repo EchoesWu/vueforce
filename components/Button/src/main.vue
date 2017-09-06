@@ -3,6 +3,7 @@
     :class="[
       type === 'icon' ? 'slds-button--icon-border' : 'slds-button_' + theme 
     ]"
+    :disabled="disabled"
     @click="$emit('click')">
     <svg class="slds-button__icon"
       :class="[
@@ -10,8 +11,7 @@
         hasIcon ? 'slds-button__icon_' + direction : ''
       ]"
       v-if="hasIcon || type ==='icon'">
-      <use 
-        :xlink:href="[assets + '/assets/icons/svg/utility/symbols.svg#' + icon]">
+      <use :xlink:href="[ assets + '/assets/icons/svg/utility/symbols.svg#' + icon ]">
       </use>
     </svg>
     {{ label }}
@@ -52,6 +52,10 @@
       direction: {
         type: String,
         default: 'left'
+      },
+      disabled: {
+        type: Boolean,
+        default: false
       }
     },
     computed: {

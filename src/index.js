@@ -12,6 +12,7 @@ import Button from '../components/Button/index.js'
 import Loading from '../components/Loading/index.js'
 import Table from '../components/Table/index.js'
 import TableColumn from '../components/TableColumn/index.js'
+import Alert from '../components/Alert/index.js'
 
 import store from './store'
 
@@ -28,7 +29,8 @@ const components = [
   Button,
   Loading,
   Table,
-  TableColumn
+  TableColumn,
+  Alert
 ]
 
 const install = function (Vue, opts = {}) {
